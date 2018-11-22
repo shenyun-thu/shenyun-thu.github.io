@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="##Elasticsearch 6.5.1   下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
+<meta name="description" content="Elasticsearch 6.5.1    下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES集群搭建">
 <meta property="og:url" content="http://yoursite.com/2018/11/22/elasticsearch集群搭建/index.html">
 <meta property="og:site_name" content="SY12138">
-<meta property="og:description" content="##Elasticsearch 6.5.1   下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
+<meta property="og:description" content="Elasticsearch 6.5.1    下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-22T12:14:11.310Z">
+<meta property="og:updated_time" content="2018-11-22T13:23:11.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES集群搭建">
-<meta name="twitter:description" content="##Elasticsearch 6.5.1   下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
+<meta name="twitter:description" content="Elasticsearch 6.5.1    下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
 
 
 
@@ -299,7 +299,9 @@
       
 
       
-        <p>##Elasticsearch 6.5.1 </p>
+        <blockquote>
+<p>Elasticsearch 6.5.1 </p>
+</blockquote>
 <ol>
 <li><p>下载</p>
 <blockquote>
@@ -316,9 +318,9 @@
 <p>discovery.zen.ping.unicast.hosts: [host1，host2, …]  #指定集群初始化时的节点</p>
 </blockquote>
 </li>
-<li><p>在三台机器上执行<figure class="highlight plain"><figcaption><span>-d```启动</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 可能出现的错误</span><br><span class="line"></span><br><span class="line">若```ps -ef | grep elasticsearch```发现没有es进程，查看日志发现有报错信息如：</span><br><span class="line"></span><br><span class="line">- ```max virtual memory areas vm.max_map_count [65530] likely too low```  </span><br><span class="line"></span><br><span class="line">  解决办法: </span><br><span class="line"></span><br><span class="line">  ```su - root</span><br></pre></td></tr></table></figure></p>
+<li><p>在三台机器上执行<figure class="highlight plain"><figcaption><span>-d```启动</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; 可能出现的错误</span><br><span class="line"></span><br><span class="line">若```ps -ef | grep elasticsearch```发现没有es进程，查看日志发现有报错信息如：</span><br><span class="line"></span><br><span class="line">* ```max virtual memory areas vm.max_map_count [65530] likely too low```  </span><br><span class="line"></span><br><span class="line">  解决办法: </span><br><span class="line"></span><br><span class="line">  ```su - root</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><figcaption><span>/etc/sysctl.conf```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在文件末尾添加  ```vm.max_map_count=262144</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>-p```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```max file descriptors [4096] for elasticsearch process likely too low</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>-p```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* ```max file descriptors [4096] for elasticsearch process likely too low</span><br></pre></td></tr></table></figure>
 <p>解决办法:</p>
 <figure class="highlight plain"><figcaption><span>- root```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```vi /etc/security/limits.conf</span><br></pre></td></tr></table></figure>
 <p>在文件末尾添加 </p>
