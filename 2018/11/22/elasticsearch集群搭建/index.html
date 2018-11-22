@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Elasticsearch 6.5.1   下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件    elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
+<meta name="description" content="##Elasticsearch 6.5.1   下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES集群搭建">
 <meta property="og:url" content="http://yoursite.com/2018/11/22/elasticsearch集群搭建/index.html">
 <meta property="og:site_name" content="SY12138">
-<meta property="og:description" content="Elasticsearch 6.5.1   下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件    elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
+<meta property="og:description" content="##Elasticsearch 6.5.1   下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-22T12:11:21.957Z">
+<meta property="og:updated_time" content="2018-11-22T12:14:11.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES集群搭建">
-<meta name="twitter:description" content="Elasticsearch 6.5.1   下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件    elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
+<meta name="twitter:description" content="##Elasticsearch 6.5.1   下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
 
 
 
@@ -299,30 +299,32 @@
       
 
       
-        <p>Elasticsearch 6.5.1 </p>
+        <p>##Elasticsearch 6.5.1 </p>
 <ol>
 <li><p>下载</p>
 <blockquote>
 <p>地址 <a href="https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz" target="_blank" rel="noopener">https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz</a></p>
 </blockquote>
 </li>
-<li><p>修改配置文件  </p>
+<li><p>修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml</p>
 <blockquote>
-<p>elasticsearch-6.5.1/config/elasticsearch.yml</p>
-<ul>
-<li>cluster.name: bizseer  #集群名称  </li>
-<li><p>path.data: /path/to/data  #指定数据存储路径</p>
-</li>
-<li><p>path.data: /path/to/data  #指定日志存储路径</p>
-</li>
-<li><p>network.host: ip_addr  #指定当前机器ip</p>
-</li>
-<li>http.port: 9200  #指定端口 默认为9200</li>
-<li>discovery.zen.ping.unicast.hosts: [host1，host2, …]  #指定集群初始化时的节点</li>
-</ul>
+<p>cluster.name: bizseer  #集群名称  </p>
+<p>path.data: /path/to/data  #指定数据存储路径</p>
+<p>path.data: /path/to/data  #指定日志存储路径</p>
+<p>network.host: ip_addr  #指定当前机器ip</p>
+<p>http.port: 9200  #指定端口 默认为9200</p>
+<p>discovery.zen.ping.unicast.hosts: [host1，host2, …]  #指定集群初始化时的节点</p>
 </blockquote>
 </li>
-<li><p>在三台机器上执行<code>elasticsearch-6.5.1/bin/elasticsearch -d</code>启动</p>
+<li><p>在三台机器上执行<figure class="highlight plain"><figcaption><span>-d```启动</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 可能出现的错误</span><br><span class="line"></span><br><span class="line">若```ps -ef | grep elasticsearch```发现没有es进程，查看日志发现有报错信息如：</span><br><span class="line"></span><br><span class="line">- ```max virtual memory areas vm.max_map_count [65530] likely too low```  </span><br><span class="line"></span><br><span class="line">  解决办法: </span><br><span class="line"></span><br><span class="line">  ```su - root</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><figcaption><span>/etc/sysctl.conf```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在文件末尾添加  ```vm.max_map_count=262144</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>-p```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```max file descriptors [4096] for elasticsearch process likely too low</span><br></pre></td></tr></table></figure>
+<p>解决办法:</p>
+<figure class="highlight plain"><figcaption><span>- root```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```vi /etc/security/limits.conf</span><br></pre></td></tr></table></figure>
+<p>在文件末尾添加 </p>
+<figure class="highlight plain"><figcaption><span>soft nofile 65536```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```*hard nofile 131072</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>soft nproc 2048```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```*hard nproc 4096</span><br></pre></td></tr></table></figure>
+<p>切换为es用户 使用<code>ulimit -n</code>查看最大进程数是否修改了65536 若未修改 需要退出bash重新登录</p>
 </li>
 </ol>
 
