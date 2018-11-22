@@ -260,7 +260,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T20:10:03+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T21:29:38+08:00">
                 2018-11-22
               </time>
             
@@ -319,17 +319,21 @@
 <p>discovery.zen.ping.unicast.hosts: [host1，host2, …]  #指定集群初始化时的节点</p>
 </blockquote>
 </li>
-<li><p>在三台机器上执行  <figure class="highlight plain"><figcaption><span>-d ```   启动</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">111111</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; 可能出现的错误</span><br><span class="line"></span><br><span class="line">若```ps -ef | grep elasticsearch```发现没有es进程，查看日志发现有报错信息如：</span><br><span class="line"></span><br><span class="line">* ```max virtual memory areas vm.max_map_count [65530] likely too low```  </span><br><span class="line"></span><br><span class="line">  解决办法: </span><br><span class="line"></span><br><span class="line">  ```su - root</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><figcaption><span>/etc/sysctl.conf```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在文件末尾添加  ```vm.max_map_count=262144</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>-p```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* ```max file descriptors [4096] for elasticsearch process likely too low</span><br></pre></td></tr></table></figure>
-<p>解决办法:</p>
-<figure class="highlight plain"><figcaption><span>- root```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```vi /etc/security/limits.conf</span><br></pre></td></tr></table></figure>
-<p>在文件末尾添加 </p>
-<figure class="highlight plain"><figcaption><span>soft nofile 65536```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```*hard nofile 131072</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>soft nproc 2048```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```*hard nproc 4096</span><br></pre></td></tr></table></figure>
-<p>切换为es用户 使用<code>ulimit -n</code>查看最大进程数是否修改了65536 若未修改 需要退出bash重新登录</p>
+<li><p>在三台机器上执行 elasticsearch-6.5.1/bin/elasticsearch -d 启动集群</p>
 </li>
 </ol>
+<blockquote>
+<p>可能出现的错误</p>
+</blockquote>
+<p>若<figure class="highlight ps"><figcaption><span>-ef | grep elasticsearch```发现没有es进程，查看日志发现有报错信息如：</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ```max virtual memory areas vm.max_map_count [<span class="number">65530</span>] likely too low```  </span><br><span class="line"></span><br><span class="line">  解决办法: </span><br><span class="line"></span><br><span class="line">  ```su - root</span><br></pre></td></tr></table></figure></p>
+  <figure class="highlight plain"><figcaption><span>/etc/sysctl.conf```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在文件末尾添加  ```vm.max_map_count=262144</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><figcaption><span>-p```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* ```max file descriptors [4096] for elasticsearch process likely too low</span><br></pre></td></tr></table></figure>
+<p>  解决办法:</p>
+  <figure class="highlight plain"><figcaption><span>- root```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```vi /etc/security/limits.conf</span><br></pre></td></tr></table></figure>
+<p>  在文件末尾添加 </p>
+  <figure class="highlight plain"><figcaption><span>soft nofile 65536```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```*hard nofile 131072</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><figcaption><span>soft nproc 2048```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```*hard nproc 4096</span><br></pre></td></tr></table></figure>
+<p>  切换为es用户 使用<code>ulimit -n</code>查看最大进程数是否修改了65536 若未修改 需要退出bash重新登录</p>
 
           
         
