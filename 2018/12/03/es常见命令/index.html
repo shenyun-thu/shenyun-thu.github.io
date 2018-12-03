@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Elasticsearch 6.5.1    下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
+<meta name="description" content="创建索引:    PUT  http://192.168.115.81:9200/log?pretty  删除索引:    DELETE http://192.168.115.81:9200/twitter?pretty  添加文档:  POST http://192.168.115.81:9200/log/message/  {​    “raw”:”this is test5”,​    “">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES集群搭建">
-<meta property="og:url" content="http://yoursite.com/2018/11/22/elasticsearch集群搭建/index.html">
+<meta property="og:title" content="ES常见命令">
+<meta property="og:url" content="http://yoursite.com/2018/12/03/es常见命令/index.html">
 <meta property="og:site_name" content="SY12138">
-<meta property="og:description" content="Elasticsearch 6.5.1    下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
+<meta property="og:description" content="创建索引:    PUT  http://192.168.115.81:9200/log?pretty  删除索引:    DELETE http://192.168.115.81:9200/twitter?pretty  添加文档:  POST http://192.168.115.81:9200/log/message/  {​    “raw”:”this is test5”,​    “">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-22T13:40:55.617Z">
+<meta property="og:updated_time" content="2018-12-03T07:58:57.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES集群搭建">
-<meta name="twitter:description" content="Elasticsearch 6.5.1    下载  地址 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz   修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml  cluster.name: bizseer  #集群名称   pa">
+<meta name="twitter:title" content="ES常见命令">
+<meta name="twitter:description" content="创建索引:    PUT  http://192.168.115.81:9200/log?pretty  删除索引:    DELETE http://192.168.115.81:9200/twitter?pretty  添加文档:  POST http://192.168.115.81:9200/log/message/  {​    “raw”:”this is test5”,​    “">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/22/elasticsearch集群搭建/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/03/es常见命令/">
 
 
 
 
 
-  <title>ES集群搭建 | SY12138</title>
+  <title>ES常见命令 | SY12138</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/22/elasticsearch集群搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/es常见命令/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shen Yun">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ES集群搭建</h1>
+          <h1 class="post-title" itemprop="name headline">ES常见命令</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T21:40:55+08:00">
-                2018-11-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-03T15:50:00+08:00">
+                2018-12-03
               </time>
             
 
@@ -299,50 +299,18 @@
       
 
       
-        <blockquote>
-<p>Elasticsearch 6.5.1 </p>
-</blockquote>
-<ol>
-<li><p>下载</p>
-<blockquote>
-<p>地址 <a href="https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz" target="_blank" rel="noopener">https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz</a></p>
-</blockquote>
+        <ul>
+<li><p>创建索引:    PUT  <a href="http://192.168.115.81:9200/log?pretty" target="_blank" rel="noopener">http://192.168.115.81:9200/log?pretty</a></p>
 </li>
-<li><p>修改配置文件  elasticsearch-6.5.1/config/elasticsearch.yml</p>
-<blockquote>
-<p>cluster.name: bizseer  #集群名称  </p>
-<p>path.data: /path/to/data  #指定数据存储路径</p>
-<p>path.data: /path/to/data  #指定日志存储路径</p>
-<p>network.host: ip_addr  #指定当前机器ip</p>
-<p>http.port: 9200  #指定端口 默认为9200</p>
-<p>discovery.zen.ping.unicast.hosts: [host1，host2, …]  #指定集群初始化时的节点</p>
-</blockquote>
+<li><p>删除索引:    DELETE <a href="http://192.168.115.81:9200/twitter?pretty" target="_blank" rel="noopener">http://192.168.115.81:9200/twitter?pretty</a></p>
 </li>
-<li><p>在三台机器上执行<code>elasticsearch-6.5.1/bin/elasticsearch -d</code>启动</p>
+<li><p>添加文档: </p>
+<p>POST <a href="http://192.168.115.81:9200/log/message/" target="_blank" rel="noopener">http://192.168.115.81:9200/log/message/</a></p>
+<p> {<br>​    “raw”:”this is test5”,<br>​    “hostname”:”sy-test-5”,<br>​    “value”:”10000”,<br>​    “field_add_test”:7</p>
+<p>}</p>
 </li>
-</ol>
-<blockquote>
-<p>可能出现的错误</p>
-</blockquote>
-<p>若<code>ps -ef | grep elasticsearch</code>发现没有es进程，查看日志发现有报错信息如：</p>
-<ul>
-<li><p><code>max virtual memory areas vm.max_map_count [65530] likely too low</code></p>
-<p>解决办法: </p>
-<p><code>su - root</code></p>
-<p><code>vi /etc/sysctl.conf</code></p>
-<p>在文件末尾添加  <code>vm.max_map_count=262144</code></p>
-<p><code>sysctl -p</code></p>
-</li>
-<li><p><code>max file descriptors [4096] for elasticsearch process likely too low</code></p>
-<p>解决办法:</p>
-<p><code>su - root</code></p>
-<p><code>vi /etc/security/limits.conf</code></p>
-<p>在文件末尾添加 </p>
-<p><code>* soft nofile 65536</code></p>
-<p><code>*hard nofile 131072</code></p>
-<p><code>* soft nproc 2048</code></p>
-<p><code>*hard nproc 4096</code></p>
-<p>切换为es用户 使用<code>ulimit -n</code>查看最大进程数是否修改了65536 若未修改 需要退出bash重新登录</p>
+<li><p>删除文档:</p>
+<p>DELETE <a href="http://192.168.115.81:9200/log/message/OykHc2cBah8KRcK6RdIi?pretty" target="_blank" rel="noopener">http://192.168.115.81:9200/log/message/OykHc2cBah8KRcK6RdIi?pretty</a></p>
 </li>
 </ul>
 
@@ -369,14 +337,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/11/24/heart/" rel="next" title="我选择喜欢你">
+                <i class="fa fa-chevron-left"></i> 我选择喜欢你
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/22/elk集群搭建记录/" rel="prev" title="ELK集群搭建记录">
-                ELK集群搭建记录 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/03/wuxiao/" rel="prev" title="xiao">
+                xiao <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
