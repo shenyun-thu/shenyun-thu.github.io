@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="SY12138">
 <meta property="og:description" content="创建索引:    PUT  http://192.168.115.81:9200/log?pretty  删除索引:    DELETE http://192.168.115.81:9200/twitter?pretty  添加文档:  POST http://192.168.115.81:9200/log/message/  {​    “raw”:”this is test5”,​    “">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-03T07:58:57.774Z">
+<meta property="og:updated_time" content="2018-12-03T11:49:33.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES常见命令">
 <meta name="twitter:description" content="创建索引:    PUT  http://192.168.115.81:9200/log?pretty  删除索引:    DELETE http://192.168.115.81:9200/twitter?pretty  添加文档:  POST http://192.168.115.81:9200/log/message/  {​    “raw”:”this is test5”,​    “">
@@ -312,6 +312,15 @@
 <li><p>删除文档:</p>
 <p>DELETE <a href="http://192.168.115.81:9200/log/message/OykHc2cBah8KRcK6RdIi?pretty" target="_blank" rel="noopener">http://192.168.115.81:9200/log/message/OykHc2cBah8KRcK6RdIi?pretty</a></p>
 </li>
+<li><p>批量添加文档：</p>
+<p>POST <a href="http://192.168.115.81:9200/_bulk?pretty" target="_blank" rel="noopener">http://192.168.115.81:9200/_bulk?pretty</a></p>
+<p>{“index”:{“_index”:”log”,”_type”:”message”}}\n<br>{“name”: “sy” }<br>{“index”:{“_index”:”log”,”_type”:”message”}}\n<br>{“name”: “wx” }</p>
+</li>
+<li><p>批量删除文档：(这里有一个比较骚的问题是 bulk方式在批量做的时候需要有换行  如果是在postman中是真的要换行  不然会一直报error)</p>
+<p>POST <a href="http://192.168.115.81:9200/_bulk?pretty" target="_blank" rel="noopener">http://192.168.115.81:9200/_bulk?pretty</a></p>
+<p>{“delete”:{“_id”:”1”}}\n<br>{“delete”:{“_id”:”2”}}\n</p>
+</li>
+<li></li>
 </ul>
 
       
