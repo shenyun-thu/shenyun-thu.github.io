@@ -229,6 +229,185 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/elastichead-head/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shen Yun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SY12138">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/11/elastichead-head/" itemprop="url">elasticsearch-head 插件安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-11T11:39:28+08:00">
+                2018-12-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>这个插件对es5.0之后的版本极其不友好，查到的教程都有一些奇怪</p>
+</li>
+<li><p>在线安装方法：</p>
+<ul>
+<li><p><a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">https://github.com/mobz/elasticsearch-head</a> 下载elasticsearch-head-master.zip </p>
+<p><a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">https://github.com/mobz/elasticsearch-head</a>  下载 node-v10.14.1-linux-x64.tar.xz</p>
+</li>
+<li><p>安装node.js</p>
+<ul>
+<li><p>解压  </p>
+</li>
+<li><p>配置环境变量  在 .bash_profile 中添加</p>
+<blockquote>
+<p>export NODE_HOME=/home/elasticsearch/node-v10.14.1-linux-x64<br>export PATH=\$PATH:\$NODE_HOME/bin<br>export NODE_PATH=\$NODE_HOME/lib/node_modules</p>
+</blockquote>
+<p>执行 <code>source .bash_profile</code>  然后<code>node -v</code>或者<code>npm -v</code>执行 查看node.js 版本</p>
+</li>
+<li><p>安装完成</p>
+</li>
+</ul>
+</li>
+<li><p>安装head插件</p>
+<ul>
+<li><p>解压</p>
+</li>
+<li><p>修改 Gruntfile.js文件 在</p>
+<blockquote>
+<p>connect: {<br>​    server: {<br>​        options: {<br>​            port: 9100,<br>​            base: ‘.’,<br>​            keepalive: true,<br>​            hostname: ‘*’    <em>添加这个字段,上面的逗号谁不加谁知道</em><br>​        }<br>​    }<br>}</p>
+</blockquote>
+</li>
+<li><p>修改 _site/app.js 文件   将</p>
+<blockquote>
+<p>this.base_uri=this.config.base_uri || this.prefs.get(“app-base_uri”) || “<a href="http://localhost:9200&quot;" target="_blank" rel="noopener">http://localhost:9200&quot;</a>;  中的localhost替换为当前机器的IP地址</p>
+</blockquote>
+</li>
+<li><p>进入elasticsearch-head-master 目录 执行 </p>
+<p><code>npm install</code></p>
+<p> <code>npm install -g grunt-cli</code> </p>
+<p>运行<code>grunt server</code>可能会报出下面的一些错误👇</p>
+<blockquote>
+<p>Local Npm module “grunt-contrib-clean” not found. Is it installed?<br>Local Npm module “grunt-contrib-concat” not found. Is it installed?<br>Local Npm module “grunt-contrib-watch” not found. Is it installed?<br>Local Npm module “grunt-contrib-connect” not found. Is it installed?<br>Local Npm module “grunt-contrib-copy” not found. Is it installed?<br>Local Npm module “grunt-contrib-jasmine” not found. Is it installed?</p>
+</blockquote>
+<p>解决办法：  一个一个装上  举个例子如下  同理把6个都install（最后一个可能会报错 不影响）</p>
+<p><code>npm install grunt-contrib-clean --registry=https://registry.npm.taobao.org</code></p>
+</li>
+<li><p>执行 <code>grunt server</code>  一般情况下就会正常执行了 访问 ip:9100即可</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>离线安装方法：</p>
+<ul>
+<li>下载 elasticsearch-head-master.zip 和 node-v10.14.1-linux-x64.tar.xz，按照上一步操作到修改文件</li>
+<li>找一台能在线安装的机器，安装好之后拷贝出elasticsearch-head-master 文件夹下的 node_modules文件夹，放到离线机器的对应位置</li>
+<li>执行 <code>node_modules/grunt/bin/grunt server</code>即可</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/08/wuxiao/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -951,7 +1130,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
