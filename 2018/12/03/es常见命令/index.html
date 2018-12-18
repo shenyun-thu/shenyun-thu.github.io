@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="SY12138">
 <meta property="og:description" content="创建索引:    PUT  http://192.168.115.81:9200/log?pretty  删除索引:    DELETE http://192.168.115.81:9200/twitter?pretty  添加文档:  POST http://192.168.115.81:9200/log/message/  {​    “raw”:”this is test5”,​    “">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-04T10:33:58.368Z">
+<meta property="og:updated_time" content="2018-12-18T03:21:25.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES常见命令">
 <meta name="twitter:description" content="创建索引:    PUT  http://192.168.115.81:9200/log?pretty  删除索引:    DELETE http://192.168.115.81:9200/twitter?pretty  添加文档:  POST http://192.168.115.81:9200/log/message/  {​    “raw”:”this is test5”,​    “">
@@ -323,6 +323,15 @@
 <li><p>批量删除文档：(这里有一个比较骚的问题是 bulk方式在批量做的时候需要有换行  是真的需要换  不然会一直报error)</p>
 <p>POST <a href="http://192.168.115.81:9200/_bulk?pretty" target="_blank" rel="noopener">http://192.168.115.81:9200/_bulk?pretty</a></p>
 <p>{“delete”:{“_id”:”1”}}\n<br>{“delete”:{“_id”:”2”}}\n</p>
+</li>
+<li><p>提前定义映射类型：</p>
+<p>POST <a href="http://192.168.115.84:9200/test/_mapping/message" target="_blank" rel="noopener">http://192.168.115.84:9200/test/_mapping/message</a></p>
+<p>{<br>​    “message”:{<br>​        “properties”:{<br>​            “timestamp”:{“type”:”date”,</p>
+<p>​                “format”:”yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis”}<br>​        }<br>​    }<br>}</p>
+<blockquote>
+<p>如果不定义format格式，测试显示 </p>
+<p>date默认接受yyyy-MM-ddTHH:mm:ssZ  yyyy-MM-dd 正负整数、正负小数、0   别的时间戳格式不行</p>
+</blockquote>
 </li>
 </ul>
 

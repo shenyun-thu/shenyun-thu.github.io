@@ -635,6 +635,15 @@
 <p>POST <a href="http://192.168.115.81:9200/_bulk?pretty" target="_blank" rel="noopener">http://192.168.115.81:9200/_bulk?pretty</a></p>
 <p>{“delete”:{“_id”:”1”}}\n<br>{“delete”:{“_id”:”2”}}\n</p>
 </li>
+<li><p>提前定义映射类型：</p>
+<p>POST <a href="http://192.168.115.84:9200/test/_mapping/message" target="_blank" rel="noopener">http://192.168.115.84:9200/test/_mapping/message</a></p>
+<p>{<br>​    “message”:{<br>​        “properties”:{<br>​            “timestamp”:{“type”:”date”,</p>
+<p>​                “format”:”yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis”}<br>​        }<br>​    }<br>}</p>
+<blockquote>
+<p>如果不定义format格式，测试显示 </p>
+<p>date默认接受yyyy-MM-ddTHH:mm:ssZ  yyyy-MM-dd 正负整数、正负小数、0   别的时间戳格式不行</p>
+</blockquote>
+</li>
 </ul>
 
           
