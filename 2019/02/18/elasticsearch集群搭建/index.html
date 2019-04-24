@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="blog for skyer">
 <meta property="og:description" content="Elasticsearch 6.5.1   &amp;#x4E0B;&amp;#x8F7D; &amp;#x5730;&amp;#x5740; https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz  &amp;#x4FEE;&amp;#x6539;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;  elasticsearch">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-24T06:12:42.759Z">
+<meta property="og:updated_time" content="2019-04-24T06:14:43.858Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES集群搭建">
 <meta name="twitter:description" content="Elasticsearch 6.5.1   &amp;#x4E0B;&amp;#x8F7D; &amp;#x5730;&amp;#x5740; https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.tar.gz  &amp;#x4FEE;&amp;#x6539;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;  elasticsearch">
@@ -166,15 +166,13 @@
 <p>network.host: ip_addr  #&#x6307;&#x5B9A;&#x5F53;&#x524D;&#x673A;&#x5668;ip</p>
 <p>http.port: 9200  #&#x6307;&#x5B9A;&#x7AEF;&#x53E3; &#x9ED8;&#x8BA4;&#x4E3A;9200</p>
 <p>discovery.zen.ping.unicast.hosts: [host1&#xFF0C;host2, &#x2026;]  #&#x6307;&#x5B9A;&#x96C6;&#x7FA4;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x7684;&#x8282;&#x70B9;</p>
+<p>http.cors.enabled: true</p>
+<p>http.cors.allow-origin: &#x201C;*&#x201D;  #&#x82E5;&#x4E0D;&#x6DFB;&#x52A0;  header&#x63D2;&#x4EF6;&#x65E0;&#x6CD5;&#x8FDE;&#x63A5;</p>
+</li>
+<li><p>&#x5728;&#x4E09;&#x53F0;&#x673A;&#x5668;&#x4E0A;&#x6267;&#x884C;<code>elasticsearch-6.5.1/bin/elasticsearch -d</code>&#x542F;&#x52A8;</p>
 </li>
 </ol>
-<p>   http.cors.enabled: true<br>   http.cors.allow-origin: &#x201C;*&#x201D;  #&#x82E5;&#x4E0D;&#x6DFB;&#x52A0;  header&#x63D2;&#x4EF6;&#x65E0;&#x6CD5;&#x8FDE;&#x63A5;</p>
-<ol start="3" class="ui list">
-<li>&#x5728;&#x4E09;&#x53F0;&#x673A;&#x5668;&#x4E0A;&#x6267;&#x884C;<code>elasticsearch-6.5.1/bin/elasticsearch -d</code>&#x542F;&#x52A8;</li>
-</ol>
-<blockquote>
 <p>&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x7684;&#x9519;&#x8BEF;</p>
-</blockquote>
 <p>&#x82E5;<code>ps -ef | grep elasticsearch</code>&#x53D1;&#x73B0;&#x6CA1;&#x6709;es&#x8FDB;&#x7A0B;&#xFF0C;&#x67E5;&#x770B;&#x65E5;&#x5FD7;&#x53D1;&#x73B0;&#x6709;&#x62A5;&#x9519;&#x4FE1;&#x606F;&#x5982;&#xFF1A;</p>
 <ul class="ui list">
 <li><p><code>max virtual memory areas vm.max_map_count [65530] likely too low</code></p>
