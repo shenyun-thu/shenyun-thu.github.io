@@ -9,14 +9,17 @@
     <title>kafka总结 | blog for skyer</title>
 
     <!-- Open Graph -->
-    <meta property="og:type" content="article">
+    <meta name="description" content="topic   offset kafka&amp;#x53EA;&amp;#x80FD;&amp;#x4FDD;&amp;#x8BC1;&amp;#x5206;&amp;#x533A;&amp;#x5185;&amp;#x7684;&amp;#x8BB0;&amp;#x5F55;&amp;#x662F;&amp;#x6709;&amp;#x5E8F;&amp;#x7684;&amp;#xFF0C;&amp;#x4E0D;&amp;#x80FD;&amp;#x4FDD;&amp;#x8BC1;topic&amp;#x4E2D;&amp;#x4E0D;&amp;#x540">
+<meta property="og:type" content="article">
 <meta property="og:title" content="kafka总结">
 <meta property="og:url" content="http://yoursite.com/2018/12/03/kafka总结/index.html">
 <meta property="og:site_name" content="blog for skyer">
+<meta property="og:description" content="topic   offset kafka&amp;#x53EA;&amp;#x80FD;&amp;#x4FDD;&amp;#x8BC1;&amp;#x5206;&amp;#x533A;&amp;#x5185;&amp;#x7684;&amp;#x8BB0;&amp;#x5F55;&amp;#x662F;&amp;#x6709;&amp;#x5E8F;&amp;#x7684;&amp;#xFF0C;&amp;#x4E0D;&amp;#x80FD;&amp;#x4FDD;&amp;#x8BC1;topic&amp;#x4E2D;&amp;#x4E0D;&amp;#x540">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-24T06:03:19.488Z">
+<meta property="og:updated_time" content="2019-04-24T06:56:16.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kafka总结">
+<meta name="twitter:description" content="topic   offset kafka&amp;#x53EA;&amp;#x80FD;&amp;#x4FDD;&amp;#x8BC1;&amp;#x5206;&amp;#x533A;&amp;#x5185;&amp;#x7684;&amp;#x8BB0;&amp;#x5F55;&amp;#x662F;&amp;#x6709;&amp;#x5E8F;&amp;#x7684;&amp;#xFF0C;&amp;#x4E0D;&amp;#x80FD;&amp;#x4FDD;&amp;#x8BC1;topic&amp;#x4E2D;&amp;#x4E0D;&amp;#x540">
 
     <script type="application/ld+json">
 {
@@ -152,7 +155,22 @@
                     <div class="article-entry" itemprop="articleBody">
                         
                         <ul class="ui list">
-<li></li>
+<li>topic  </li>
+<li>offset</li>
+<li>kafka&#x53EA;&#x80FD;&#x4FDD;&#x8BC1;&#x5206;&#x533A;&#x5185;&#x7684;&#x8BB0;&#x5F55;&#x662F;&#x6709;&#x5E8F;&#x7684;&#xFF0C;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;topic&#x4E2D;&#x4E0D;&#x540C;&#x5206;&#x533A;&#x7684;&#x987A;&#x5E8F;</li>
+<li>&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x53EA;&#x80FD;&#x88AB;&#x540C;&#x4E00;&#x6D88;&#x8D39;&#x8005;&#x7EC4;&#x5185;&#x7684;&#x4E00;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x6D88;&#x8017; =&gt; &#x6D88;&#x8D39;&#x8005;&#x7EC4;&#x4E2D;&#x7684;&#x6D88;&#x8D39;&#x8005;&#x5B9E;&#x4F8B;&#x4E2A;&#x6570;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;&#x5206;&#x533A;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x6709;&#x6D88;&#x8D39;&#x8005;&#x5904;&#x4E8E;&#x7A7A;&#x95F2;&#x72B6;&#x6001;</li>
+</ul>
+<ul class="ui list">
+<li><p>&#x5E38;&#x89C1;&#x547D;&#x4EE4;</p>
+<ul>
+<li><p>&#x521B;&#x5EFA;topic</p>
+<figure class="highlight plain"><figcaption><span>--create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* &#x751F;&#x4EA7;&#x8005;</span><br></pre></td></tr></table></figure>
+<p>bin/kafka-console-producer.sh &#x2013;broker-list localhost:9092 &#x2013;topic test</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* &#x6D88;&#x8D39;&#x8005;</span><br></pre></td></tr></table></figure>
+<p>bin/kafka-console-consumer.sh &#x2013;bootstrap-server localhost:9092 &#x2013;topic test &#x2013;from-beginning<br><code>`</code></p>
+</li>
+</ul>
+</li>
 </ul>
 
                         
@@ -181,11 +199,11 @@
             <div class="column nav-left">
                 
 
-                <a href="/2018/12/03/es常见命令/" class="ui tiny button">
+                <a href="/2019/02/18/elastichead-head/" class="ui tiny button">
 
                     <i class="angle left icon"></i>
                     
-                    ES常见命令
+                    elasticsearch-head 插件安装
                     
 
                 </a>
@@ -195,9 +213,9 @@
             <div class="column nav-right">
                 
 
-                <a href="/2018/12/03/kafka添加SASL认证方法/" class="ui tiny button">
+                <a href="/2018/12/03/es常见命令/" class="ui tiny button">
                     
-                    kafka添加SASL认证方法
+                    ES常见命令
                     
                     <i class="angle right icon"></i></a>
                 
