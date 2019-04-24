@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="blog for skyer">
 <meta property="og:description" content="&amp;#x8FD9;&amp;#x4E2A;&amp;#x63D2;&amp;#x4EF6;&amp;#x5BF9;es5.0&amp;#x4E4B;&amp;#x540E;&amp;#x7684;&amp;#x7248;&amp;#x672C;&amp;#x6781;&amp;#x5176;&amp;#x4E0D;&amp;#x53CB;&amp;#x597D;&amp;#xFF0C;&amp;#x67E5;&amp;#x5230;&amp;#x7684;&amp;#x6559;&amp;#x7A0B;&amp;#x90FD;&amp;#x6709;&amp;#x4E00;&amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-24T06:04:20.280Z">
+<meta property="og:updated_time" content="2019-04-24T06:05:34.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="elasticsearch-head 插件安装">
 <meta name="twitter:description" content="&amp;#x8FD9;&amp;#x4E2A;&amp;#x63D2;&amp;#x4EF6;&amp;#x5BF9;es5.0&amp;#x4E4B;&amp;#x540E;&amp;#x7684;&amp;#x7248;&amp;#x672C;&amp;#x6781;&amp;#x5176;&amp;#x4E0D;&amp;#x53CB;&amp;#x597D;&amp;#xFF0C;&amp;#x67E5;&amp;#x5230;&amp;#x7684;&amp;#x6559;&amp;#x7A0B;&amp;#x90FD;&amp;#x6709;&amp;#x4E00;&amp;#">
@@ -168,9 +168,7 @@
 <li><p>&#x89E3;&#x538B;  xz -d node-v10.15.1-linux-x64.tar.xz &amp;&amp; tar -xvf node-v10.15.1-linux-x64.tar</p>
 </li>
 <li><p>&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;  &#x5728; .bash_profile &#x4E2D;&#x6DFB;&#x52A0;</p>
-<blockquote>
-<p>export NODE_HOME=/home/elasticsearch/node-v10.14.1-linux-x64<br>export PATH=\$PATH:\$NODE_HOME/bin<br>export NODE_PATH=\$NODE_HOME/lib/node_modules</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export NODE_HOME=/home/elasticsearch/node-v10.14.1-linux-x64</span><br><span class="line">export PATH=\$PATH:\$NODE_HOME/bin</span><br><span class="line">export NODE_PATH=\$NODE_HOME/lib/node_modules</span><br></pre></td></tr></table></figure>
 <p>&#x6267;&#x884C; <code>source .bash_profile</code>  &#x7136;&#x540E;<code>node -v</code>&#x6216;&#x8005;<code>npm -v</code>&#x6267;&#x884C; &#x67E5;&#x770B;node.js &#x7248;&#x672C;</p>
 </li>
 <li><p>&#x5B89;&#x88C5;&#x5B8C;&#x6210;</p>
@@ -193,9 +191,7 @@
 <p><code>npm install</code></p>
 <p> <code>npm install -g grunt-cli</code> </p>
 <p>&#x8FD0;&#x884C;<code>grunt server</code>&#x53EF;&#x80FD;&#x4F1A;&#x62A5;&#x51FA;&#x4E0B;&#x9762;&#x7684;&#x4E00;&#x4E9B;&#x9519;&#x8BEF;&#x1F447;</p>
-<blockquote>
-<p>Local Npm module &#x201C;grunt-contrib-clean&#x201D; not found. Is it installed?<br>Local Npm module &#x201C;grunt-contrib-concat&#x201D; not found. Is it installed?<br>Local Npm module &#x201C;grunt-contrib-watch&#x201D; not found. Is it installed?<br>Local Npm module &#x201C;grunt-contrib-connect&#x201D; not found. Is it installed?<br>Local Npm module &#x201C;grunt-contrib-copy&#x201D; not found. Is it installed?<br>Local Npm module &#x201C;grunt-contrib-jasmine&#x201D; not found. Is it installed?</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    Local Npm module &quot;grunt-contrib-clean&quot; not found. Is it installed?</span><br><span class="line">    Local Npm module &quot;grunt-contrib-concat&quot; not found. Is it installed?</span><br><span class="line">    Local Npm module &quot;grunt-contrib-watch&quot; not found. Is it installed?</span><br><span class="line">  Local Npm module &quot;grunt-contrib-connect&quot; not found. Is it installed?</span><br><span class="line">    Local Npm module &quot;grunt-contrib-copy&quot; not found. Is it installed?</span><br><span class="line">Local Npm module &quot;grunt-contrib-jasmine&quot; not found. Is it installed?</span><br></pre></td></tr></table></figure>
 <p>&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#xFF1A;  &#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x88C5;&#x4E0A;  &#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#x5982;&#x4E0B;  &#x540C;&#x7406;&#x628A;6&#x4E2A;&#x90FD;install&#xFF08;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53EF;&#x80FD;&#x4F1A;&#x62A5;&#x9519; &#x4E0D;&#x5F71;&#x54CD;&#xFF09;</p>
 <p><code>npm install grunt-contrib-clean --registry=https://registry.npm.taobap.org</code></p>
 <p>&#x6267;&#x884C; <code>grunt server</code>  &#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x5C31;&#x4F1A;&#x6B63;&#x5E38;&#x6267;&#x884C;&#x4E86; &#x8BBF;&#x95EE; ip:9100&#x5373;&#x53EF;</p>
@@ -253,9 +249,9 @@
             <div class="column nav-right">
                 
 
-                <a href="/2018/12/03/kafka总结/" class="ui tiny button">
+                <a href="/2018/12/03/es常见命令/" class="ui tiny button">
                     
-                    kafka总结
+                    ES常见命令
                     
                     <i class="angle right icon"></i></a>
                 
