@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="es通过delete方法删除索引的时候，可以通过_all或者* 来全部删除，为了防止误删除，可以指定elasticsearc.yml文件中的 atino.destructive_requires-name为true 必须使用名称或者别名才能删除 kibana在linux下安装启动的时候需要修改host为当前机器的ip否则无法通过浏览器访问 es中，如果新添加的文档中含有之前未映射的字段，那么es">
+<meta name="description" content="使用 kafka自带的zookeeper 且仅对kafka添加认证      kafka服务端配置   编辑 config/server.properties   添加一下内容 123456listeners=SASL_PLAINTEXT://192.168.115.81:9092    #指定协议和IPsecurity.inter.broker.protocol=SASL_PLAINTEXTs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ELK集群搭建记录">
-<meta property="og:url" content="http://yoursite.com/2018/11/22/elk集群搭建记录/index.html">
+<meta property="og:title" content="kafka添加SASL认证方法">
+<meta property="og:url" content="http://yoursite.com/2018/12/03/kafka添加SASL认证方法/index.html">
 <meta property="og:site_name" content="SY12138">
-<meta property="og:description" content="es通过delete方法删除索引的时候，可以通过_all或者* 来全部删除，为了防止误删除，可以指定elasticsearc.yml文件中的 atino.destructive_requires-name为true 必须使用名称或者别名才能删除 kibana在linux下安装启动的时候需要修改host为当前机器的ip否则无法通过浏览器访问 es中，如果新添加的文档中含有之前未映射的字段，那么es">
+<meta property="og:description" content="使用 kafka自带的zookeeper 且仅对kafka添加认证      kafka服务端配置   编辑 config/server.properties   添加一下内容 123456listeners=SASL_PLAINTEXT://192.168.115.81:9092    #指定协议和IPsecurity.inter.broker.protocol=SASL_PLAINTEXTs">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-03T07:46:03.914Z">
+<meta property="og:updated_time" content="2019-04-15T06:59:53.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ELK集群搭建记录">
-<meta name="twitter:description" content="es通过delete方法删除索引的时候，可以通过_all或者* 来全部删除，为了防止误删除，可以指定elasticsearc.yml文件中的 atino.destructive_requires-name为true 必须使用名称或者别名才能删除 kibana在linux下安装启动的时候需要修改host为当前机器的ip否则无法通过浏览器访问 es中，如果新添加的文档中含有之前未映射的字段，那么es">
+<meta name="twitter:title" content="kafka添加SASL认证方法">
+<meta name="twitter:description" content="使用 kafka自带的zookeeper 且仅对kafka添加认证      kafka服务端配置   编辑 config/server.properties   添加一下内容 123456listeners=SASL_PLAINTEXT://192.168.115.81:9092    #指定协议和IPsecurity.inter.broker.protocol=SASL_PLAINTEXTs">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/22/elk集群搭建记录/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/03/kafka添加SASL认证方法/">
 
 
 
 
 
-  <title>ELK集群搭建记录 | SY12138</title>
+  <title>kafka添加SASL认证方法 | SY12138</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/22/elk集群搭建记录/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/kafka添加SASL认证方法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shen Yun">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ELK集群搭建记录</h1>
+          <h1 class="post-title" itemprop="name headline">kafka添加SASL认证方法</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T22:06:00+08:00">
-                2018-11-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-03T15:50:00+08:00">
+                2018-12-03
               </time>
             
 
@@ -299,12 +299,55 @@
       
 
       
-        <ul>
-<li>es通过delete方法删除索引的时候，可以通过_all或者* 来全部删除，为了防止误删除，可以指定elasticsearc.yml文件中的 atino.destructive_requires-name为true 必须使用名称或者别名才能删除</li>
-<li>kibana在linux下安装启动的时候需要修改host为当前机器的ip否则无法通过浏览器访问</li>
-<li>es中，如果新添加的文档中含有之前未映射的字段，那么es会自动猜测该字段值的类型，安全的做法是在索引数据之前定义好所需的映射。  (已测试合理)</li>
-<li></li>
+        <blockquote>
+<p>使用 kafka自带的zookeeper 且仅对kafka添加认证   </p>
+</blockquote>
+<ol>
+<li>kafka服务端配置</li>
+</ol>
+<ul>
+<li><p>编辑 config/server.properties   添加一下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">listeners=SASL_PLAINTEXT://192.168.115.81:9092    #指定协议和IP</span><br><span class="line">security.inter.broker.protocol=SASL_PLAINTEXT</span><br><span class="line">sasl.enabled.mechanisms=PLAIN</span><br><span class="line">sasl.mechanism.inter.broker.protocol=PLAIN</span><br><span class="line">authorizer.class.name=kafka.security.auth.SimpleAclAuthorizer</span><br><span class="line">super.users=User:admin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 config  目录中 新建文件 kafka_server_jaas.conf 添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">KafkaServer &#123;</span><br><span class="line">    org.apache.kafka.common.security.plain.PlainLoginModule required</span><br><span class="line">    username=&quot;admin&quot;       #指定admin用户  </span><br><span class="line">    password=&quot;admin&quot;</span><br><span class="line">    user_admin=&quot;admin&quot;</span><br><span class="line">    user_alice=&quot;alice&quot;;    #随意指定另一个用户</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑  bin/kafka-run-class.sh 文件   将最后一段修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">KAFKA_SASL_OPTS=&quot;-Djava.security.auth.login.config=/mnt/disk/aiops/aiops/opt/kafka/config/kafka_server_jaas.conf&quot;</span><br><span class="line"># Launch mode</span><br><span class="line">if [ &quot;x$DAEMON_MODE&quot; = &quot;xtrue&quot; ]; then</span><br><span class="line">  nohup $JAVA $KAFKA_HEAP_OPTS $KAFKA_JVM_PERFORMANCE_OPTS $KAFKA_GC_LOG_OPTS $KAFKA_SASL_OPTS $KAFKA_JMX_OPTS $KAFKA_LOG4J_OPTS -cp $CLASSPATH $KAFKA_OPTS &quot;$@&quot; &gt; &quot;$CONSOLE_OUTPUT_FILE&quot; 2&gt;&amp;1 &lt; /dev/null &amp;</span><br><span class="line">else</span><br><span class="line">  exec $JAVA $KAFKA_HEAP_OPTS $KAFKA_JVM_PERFORMANCE_OPTS $KAFKA_GC_LOG_OPTS $KAFKA_SASL_OPTS $KAFKA_JMX_OPTS $KAFKA_LOG4J_OPTS -cp $CLASSPATH $KAFKA_OPTS &quot;$@&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<blockquote>
+<p>这里网上有很多稀奇古怪的方法   经过本人测试只有上面👆这个方法合理</p>
+</blockquote>
+<ul>
+<li>至此 kafka服务端的SASL认证已经配置完毕，启动zookeeper后再启动kafka即可</li>
+</ul>
+<ol start="2">
+<li>kafka客户端配置</li>
+</ol>
+<ul>
+<li><p>在 config  目录中 新建文件 kafka_client_jaas.conf 添加以下内容   (这个文件用于给其他jar包运行)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">KafkaClient&#123;</span><br><span class="line">    org.apache.kafka.common.security.plain.PlainLoginModule required</span><br><span class="line">    username=&quot;admin&quot;</span><br><span class="line">    password=&quot;admin&quot;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑  config/producer.properties 文件  添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">security.protocol=SASL_PLAINTEXT</span><br><span class="line">sasl.mechanism=PLAIN</span><br><span class="line">sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \</span><br><span class="line">username=&quot;admin&quot; \</span><br><span class="line">password=&quot;admin&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑  config/consumer.properties 文件  添加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">security.protocol=SASL_PLAINTEXT</span><br><span class="line">sasl.mechanism=PLAIN</span><br><span class="line">sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required \</span><br><span class="line">username=&quot;admin&quot;  \</span><br><span class="line">password=&quot;admin&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="3">
+<li><p>测试</p>
+<p>启动消费者</p>
+<p> <code>bin/kafka-console-consumer.sh --bootstrap-server 192.168.115.81:9092 --topic test --from-beginning --consumer.config=config/consumer.properties</code></p>
+<blockquote>
+<p>[2019-04-15 14:48:16,788] WARN The configuration ‘zookeeper.connect’ was supplied but isn’t a known config. (org.apache.kafka.clients.consumer.ConsumerConfig)<br>[2019-04-15 14:48:16,789] WARN The configuration ‘zookeeper.connection.timeout.ms’ was supplied but isn’t a known config. (org.apache.kafka.clients.consumer.ConsumerConfig)</p>
+<p>上面两个告警可以忽略</p>
+</blockquote>
+<p>启动生产者</p>
+<p><code>bin/kafka-console-producer.sh --broker-list 192.168.115.81:9092 --topic test --producer.config=config/producer.properties</code></p>
+</li>
+</ol>
 
       
     </div>
@@ -329,14 +372,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/11/22/elk集群搭建记录/" rel="next" title="ELK集群搭建记录">
+                <i class="fa fa-chevron-left"></i> ELK集群搭建记录
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/03/kafka添加SASL认证方法/" rel="prev" title="kafka添加SASL认证方法">
-                kafka添加SASL认证方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/03/es常见命令/" rel="prev" title="ES常见命令">
+                ES常见命令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
