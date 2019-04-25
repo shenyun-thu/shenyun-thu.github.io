@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="blog for skyer">
 <meta property="og:description" content="topic   offset kafka&amp;#x53EA;&amp;#x80FD;&amp;#x4FDD;&amp;#x8BC1;&amp;#x5206;&amp;#x533A;&amp;#x5185;&amp;#x7684;&amp;#x8BB0;&amp;#x5F55;&amp;#x662F;&amp;#x6709;&amp;#x5E8F;&amp;#x7684;&amp;#xFF0C;&amp;#x4E0D;&amp;#x80FD;&amp;#x4FDD;&amp;#x8BC1;topic&amp;#x4E2D;&amp;#x4E0D;&amp;#x540">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-24T09:37:00.195Z">
+<meta property="og:updated_time" content="2019-04-25T02:33:36.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kafka总结">
 <meta name="twitter:description" content="topic   offset kafka&amp;#x53EA;&amp;#x80FD;&amp;#x4FDD;&amp;#x8BC1;&amp;#x5206;&amp;#x533A;&amp;#x5185;&amp;#x7684;&amp;#x8BB0;&amp;#x5F55;&amp;#x662F;&amp;#x6709;&amp;#x5E8F;&amp;#x7684;&amp;#xFF0C;&amp;#x4E0D;&amp;#x80FD;&amp;#x4FDD;&amp;#x8BC1;topic&amp;#x4E2D;&amp;#x4E0D;&amp;#x540">
@@ -164,10 +164,13 @@
 <li><p>&#x5E38;&#x89C1;&#x547D;&#x4EE4;</p>
 <ul>
 <li><p>&#x521B;&#x5EFA;topic</p>
-<figure class="highlight plain"><figcaption><span>--create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- &#x751F;&#x4EA7;&#x8005;</span><br></pre></td></tr></table></figure>
-<p>bin/kafka-console-producer.sh &#x2013;broker-list localhost:9092 &#x2013;topic test</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- &#x6D88;&#x8D39;&#x8005;</span><br></pre></td></tr></table></figure>
-<p>bin/kafka-console-consumer.sh &#x2013;bootstrap-server localhost:9092 &#x2013;topic test &#x2013;from-beginning<br><code>`</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x751F;&#x4EA7;&#x8005;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>&#x6D88;&#x8D39;&#x8005;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
